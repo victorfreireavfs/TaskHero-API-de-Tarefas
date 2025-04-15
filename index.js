@@ -1,17 +1,15 @@
-import express, { json } from 'express';          // Importa o Express
-const app = express();                       // Cria a aplicação
-import tarefasRouter from './routes/tarefas'; // Importa as rotas de tarefas
+const express = require('express');       // Importa o Express
+const app = express();                    // Inicializa o app Express
+const PORT = 3000;                        // Define a porta do servidor
 
-app.use(json()); // Middleware para aceitar JSON no body
+app.use(express.json());                 // Middleware para interpretar JSON nas requisições
 
-app.use('/tarefas', tarefasRouter); // Quando acessar /tarefas, use esse conjunto de rotas
-
-// Rota inicial só para teste
+// Rota simples de exemplo
 app.get('/', (req, res) => {
-  res.send('Bem-vindo à TaskHero API!');
+  res.send('Bem-vindo à API TaskHero! 🚀');
 });
 
-// Inicia o servidor na porta 3000
-app.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000 🚀');
+// Inicia o servidor
+app.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
 });

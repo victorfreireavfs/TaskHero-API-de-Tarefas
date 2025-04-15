@@ -1,8 +1,8 @@
 // routes/tarefas.js 🟢 GET / — listar todas as tarefas
 
-import { Router } from 'express'; // Importa o Express
-const router = Router();    // Cria um mini app para rotas
-import tarefas from '../data/tarefasFake'; // Importa as tarefas
+const express = require('express'); // Importa o Express
+const router = express.Router();    // Cria um mini app para rotas
+let tarefas = require('../data/tarefasFake'); // Importa as tarefas
 
 // 🔍 GET /:id — buscar tarefa por ID
 router.get('/', (req, res) => {
